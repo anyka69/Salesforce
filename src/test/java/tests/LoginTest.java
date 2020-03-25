@@ -15,5 +15,11 @@ public class LoginTest extends BaseTest {
                 .clickNew()
                 .createAccount()
                 .clickButtonSave();
+        contactsPage
+                .openPages()
+                .isOpenPages()
+                .clickNew()
+                .createContacts()
+                .clickButtonSave();
     }
 }

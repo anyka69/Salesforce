@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class DropDown {
     String label;
-    String locator="//div[contains(@class,'isModal')]//span[contains(text(),'Type')]/../..//a";
+    String locator = "//div[contains(@class,'isModal')]//span[contains(text(),'%s')]/../..//a";
     public DropDown(String label){
         this.label=label;
     }
