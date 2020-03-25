@@ -12,6 +12,7 @@ public class AccountsPage extends BasePage {
         super(driver);
     }
     By clickButtonNew = By.cssSelector("div[title=New]");
+    By clickButtonSave = By.cssSelector("div[title=Save]");
     String url = "https://ap16.lightning.force.com/lightning/o/Account/list?filterName=Recent";
     @Override
     public AccountsPage openPage(){
@@ -41,14 +42,19 @@ public class AccountsPage extends BasePage {
         new TextInput("Website").write(driver,"onliner.by");
         new TextInput("Phone").write(driver,"+123456789");
         new TextInput("Employees").write(driver,"25");
-        new TextInput("Billing City").write(driver,"Minsk");
-        new TextInput("Billing Country").write(driver,"Belarus");
-        new TextInput("Billing State/Province").write(driver,"Minsk");
-        new TextInput("Billing Zip/Postal Code").write(driver,"447");
-        new TextInput("Shipping City").write(driver,"Moscow");
-        new TextInput("Shipping State/Province").write(driver,"Moscow");
-        new TextInput("Shipping Zip/Postal Code").write(driver,"597");
-        new TextInput("Shipping Country").write(driver,"Russia");
+        new TextInput("Billing City").write(driver, "Minsk");
+        new TextInput("Billing Country").write(driver, "Belarus");
+        new TextInput("Billing State/Province").write(driver, "Minsk");
+        new TextInput("Billing Zip/Postal Code").write(driver, "447");
+        new TextInput("Shipping City").write(driver, "Moscow");
+        new TextInput("Shipping State/Province").write(driver, "Moscow");
+        new TextInput("Shipping Zip/Postal Code").write(driver, "597");
+        new TextInput("Shipping Country").write(driver, "Russia");
+        return this;
+    }
+
+    public AccountsPage clickButtonSave() {
+        driver.findElement(clickButtonSave).click();
         return this;
     }
 }
