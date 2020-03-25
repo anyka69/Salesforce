@@ -5,13 +5,14 @@ import elements.TextArea;
 import elements.TextInput;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
 
 public class AccountsPage extends BasePage {
     public AccountsPage(WebDriver driver) {
         super(driver);
     }
-    String url ="https://ap16.lightning.force.com/lightning/o/Account/list?filterName=Recent";
+    By clickButtonNew = By.cssSelector("div[title=New]");
+    String url = "https://ap16.lightning.force.com/lightning/o/Account/list?filterName=Recent";
     @Override
     public AccountsPage openPage(){
         driver.get(url);
@@ -21,19 +22,16 @@ public class AccountsPage extends BasePage {
     public AccountsPage isOpenPage(){
         return this;
     }
-
     @Override
     public LoginPage openPage(String url) {
         return null;
     }
-
     @Override
     public LoginPage isOpenedPage() {
         return null;
     }
-
     public AccountsPage clickNew(){
-        driver.findElement(By.cssSelector("div[title=New]")).click();
+        driver.findElement(clickButtonNew).click();
         return this;
     }
     public AccountsPage createAccount(){
