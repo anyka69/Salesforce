@@ -2,11 +2,11 @@ package tests;
 
 import org.testng.annotations.Test;
 
-public class LoginTest extends BaseTest {
+public class AccountPage extends BaseTest {
     @Test
-    public void Login(){
+    public void Login() {
         registrationUser
-                .openPage("https://login.salesforce.com/")
+                .openPage()
                 .inputUserName("anyka69-z8j8@force.com")
                 .inputPassword("qwerty123")
                 .clickLogin();
@@ -16,8 +16,7 @@ public class LoginTest extends BaseTest {
                 .createAccount()
                 .clickButtonSave();
         contactsPage
-                .openPages()
-                .isOpenPages()
+                .openPage()
                 .clickNew()
                 .createContacts()
                 .clickButtonSave();

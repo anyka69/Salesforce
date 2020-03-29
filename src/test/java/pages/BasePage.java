@@ -13,10 +13,7 @@ public abstract class BasePage {
         wait = new WebDriverWait(this.driver, 20);
     }
 
-    public abstract AccountsPage openPage();
+    public abstract BasePage openPage();
 
-    public abstract AccountsPage isOpenPage();
-
-    public abstract LoginPage openPage(String url);
-    public abstract LoginPage isOpenedPage();
+    public abstract BasePage isOpenPage();
 }

@@ -12,7 +12,7 @@ public class AccountsPage extends BasePage {
         super(driver);
     }
     By clickButtonNew = By.cssSelector("div[title=New]");
-    By clickButtonSave = By.cssSelector("div[title=Save]");
+    By clickButtonSave = By.cssSelector("button[title=Save]");
     String url = "https://ap16.lightning.force.com/lightning/o/Account/list?filterName=Recent";
     @Override
     public AccountsPage openPage(){
@@ -22,14 +22,6 @@ public class AccountsPage extends BasePage {
     @Override
     public AccountsPage isOpenPage(){
         return this;
-    }
-    @Override
-    public LoginPage openPage(String url) {
-        return null;
-    }
-    @Override
-    public LoginPage isOpenedPage() {
-        return null;
     }
     public AccountsPage clickNew(){
         driver.findElement(clickButtonNew).click();

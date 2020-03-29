@@ -22,21 +22,10 @@ public class BaseTest {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        registrationUser = new LoginPage(driver) {
-            @Override
-            public ContactsPage openPages() {
-                return null;
-            }
-
-            @Override
-            public ContactsPage isOpenPages() {
-                return null;
-            }
-        };
+        registrationUser = new LoginPage(driver);
         accountsPage = new AccountsPage(driver);
         contactsPage = new ContactsPage(driver);
     }
-
     @AfterMethod(alwaysRun = true)
     public void closeDriver() {
         driver.quit();

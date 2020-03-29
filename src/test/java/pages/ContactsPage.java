@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 public class ContactsPage extends BasePage {
     By clickButtonNew = By.cssSelector("div[title=New]");
     By clickButtonSave = By.cssSelector("button[title=Save]");
+    By ACCOUNT_NAMES = By.cssSelector("a[role=option]");
     String url = "https://ap16.lightning.force.com/lightning/o/Contact/list?filterName=Recent";
 
     public ContactsPage(WebDriver driver) {
@@ -16,43 +17,22 @@ public class ContactsPage extends BasePage {
     }
 
     @Override
-    public AccountsPage openPage() {
-        return null;
-    }
-
-    @Override
-    public AccountsPage isOpenPage() {
-        return null;
-    }
-
-    @Override
-    public LoginPage openPage(String url) {
-        return null;
-    }
-
-    @Override
-    public LoginPage isOpenedPage() {
-        return null;
-    }
-
-    @Override
-    public ContactsPage openPages() {
+    public ContactsPage openPage() {
         driver.get(url);
         return this;
     }
 
     @Override
-    public ContactsPage isOpenPages() {
-        return this;
+    public BasePage isOpenPage() {
+        return null;
     }
 
     public ContactsPage clickNew() {
         driver.findElement(clickButtonNew).click();
         return this;
     }
-
     public ContactsPage createContacts() {
-        new DropDown("Salutation").selectValue(driver, "Ms.");
+        new DropDown("Salutation").selectValue(driver, "Dr.");
         new TextInput("First Name").write(driver, "Anna");
         new TextInput("Title").write(driver, "Welcome");
         new TextInput("Phone").write(driver, "+123456789");
@@ -75,9 +55,10 @@ public class ContactsPage extends BasePage {
         new DropDown("Lead Source").selectValue(driver, "Other");
         new TextInput("Birthdate").write(driver, "08.09.2003");
         new TextArea("Description").write(driver, "Other");
+        driver.findElement(By.xpath("//div[contains(@class,'isModal')]//span[contains(text(),'Account Name')]/../..//input")).click();
+        driver.findElements(ACCOUNT_NAMES).get(1);
         return this;
     }
-
     public ContactsPage clickButtonSave() {
         driver.findElement(clickButtonSave).click();
         return this;
